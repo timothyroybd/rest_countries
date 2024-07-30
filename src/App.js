@@ -30,6 +30,7 @@ export default function App() {
     <div className="App">
       <header>
         <h1>Where in the world?</h1>
+        <p> Dark Mode </p>
       </header>
       <Search />
 
