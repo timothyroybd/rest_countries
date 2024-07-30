@@ -1,0 +1,27 @@
+.form_wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.item {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form_wrapper input {
+  flex: 1;
+  max-width: 35%;
+  margin-right: 10px;
+}
+.form_wrapper select {
+  flex: 1;
+  max-width: 20%;
+}
+
+.item:last-child {
+  margin-right: 0;
+}
