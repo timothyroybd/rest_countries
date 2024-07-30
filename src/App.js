@@ -13,7 +13,9 @@ import Search from "./components/Search";
 import "./styles/styles.css";
 
 export default function App() {
+  //States
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([])
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -22,7 +24,7 @@ export default function App() {
       .then((data) => {
         setLoading(false);
 
-        sortDataHandler(data, setData);
+        sortDataHandler(data, setData, setFilteredData);
       });
   }, []);
 
@@ -32,10 +34,10 @@ export default function App() {
         <h1>Where in the world?</h1>
         <p> Dark Mode </p>
       </header>
-      <Search />
+      <Search data={filteredData} setData = {setFilteredData} originalData = {data}/>
 
       <Container>
-        <Card data={data} />
+        <Card data={filteredData} />
       </Container>
     </div>
   );

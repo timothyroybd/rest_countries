@@ -1,11 +1,32 @@
-import "../styles/Search.css";
-import { Container, Row, Col } from "react-bootstrap";
+import '../styles/Search.css';
+import { Container, Row, Col } from 'react-bootstrap';
 
-const changeHandler = (e) => {
-  const value = e.target.value;
+const Search = ({ data, setData, originalData }) => {
+
+ 
+
+  const changeHandler = (e) => {
+  
+
+  const value = e.target.value.toLowerCase().trim();
+  console.log("Search input:", value);
+
+  if(value === ''){
+    
+    setData(originalData)
+    console.log("Reverted to original data:", data);
+  } else {
+    const searchedArray = originalData.filter(element => {
+      const name = element.name.common.toLowerCase();
+      return name.startsWith(value)
+    })
+    setData(searchedArray)
+     console.log("Filtered data:", searchedArray);
+  }
+
+  
 };
 
-const Search = () => {
   return (
     <Container>
       <form className="form_wrapper">
@@ -13,7 +34,7 @@ const Search = () => {
           className="item"
           type="text"
           placeholder="Search"
-          onChange={(e) => changeHandler(e)}
+          onChange={(e) => changeHandler(e, data, setData)}
         />
 
         <select className="item">
