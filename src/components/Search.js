@@ -1,11 +1,20 @@
 import "../styles/Search.css";
 import { Container, Row, Col } from "react-bootstrap";
-// form_wrapper
+
+const changeHandler = (e) => {
+  const value = e.target.value;
+};
+
 const Search = () => {
   return (
     <Container>
       <form className="form_wrapper">
-        <input className="item" type="text" placeholder="Search" />
+        <input
+          className="item"
+          type="text"
+          placeholder="Search"
+          onChange={(e) => changeHandler(e)}
+        />
 
         <select className="item">
           <option value="">Filter by Region</option>
